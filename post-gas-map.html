@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Custom Markers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+      <style>
+        /* Always set the map height explicitly to define the size of the div
+          * element that contains the map. */
+        #map {
+          height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+          html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            }
+            </style>
+   </head>
+<body>
+  <div id="map"></div>
+    <script>
+      var map;
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: new google.maps.LatLng(24.181921, 120.629248),
+          mapTypeId: 'roadmap'
+        });
+      var icons = {
+        post: {
+          icon: 'post.png'
+        },
+        gas: {
+        icon:'gas.png'
+        },
+      };
+      var features = [  
+       {
+         position: new google.maps.LatLng(24.190546, 120.612209),type: 'post',address: '407台中市西屯區永安里西屯路三段166之80號'
+       }, //永安
+       {
+         position: new google.maps.LatLng(24.184104, 120.604814),type: 'post',address: '407台中市西屯區台中港路三段160號'
+       }, //榮總
+       {
+         position: new google.maps.LatLng(24.183563, 120.618633),type: 'post',address: '407台中市西屯區福順路318號'
+       },//福安
+       {
+         position: new google.maps.LatLng(24.179132, 120.601660),type: 'post',address: '407台中市西屯區台灣大道四段1727號'
+       },//東大
+       {
+         position: new google.maps.LatLng(24.169642, 120.606534),type: 'post',address: '407台中市西屯區工業區六路10號'
+       },//台中工業區
+       {
+         position: new google.maps.LatLng(24.176861, 120.637635),type: 'post',address: '407台中市西屯區黎明路三段130號'
+       },//西屯
+       {
+         position: new google.maps.LatLng(24.175402, 120.649106),type: 'post',address: '407台中市西屯區河南路2段268號'
+       },//逢甲
+       {
+         position: new google.maps.LatLng(24.164804, 120.654192),type: 'post',address: '407台中市西屯區青海路一段83號'
+       },//何厝
+       {
+         position: new google.maps.LatLng(24.156590, 120.652859),type: 'post',address: '40759台中市西屯區大隆路60、62號'
+       },//大隆
+       
+         
+       {
+         position: new google.maps.LatLng(24.205901, 120.628999),type: 'gas',address: '407台中市西屯區福雅路693號'
+       },//福雅
+       {
+         position: new google.maps.LatLng(24.198444, 120.642615),type: 'gas',address: '407台中市西屯區廣福路191號'
+       },//福雅右下
+       {
+         position: new google.maps.LatLng(24.202174, 120.654391),type: 'gas',address: '407台中市西屯區中清路三段150號'
+       },//中清
+       {
+         position: new google.maps.LatLng(24.199928, 120.655378),type: 'gas',address: '407台中市西屯區中清路三段1號'
+       },//員村
+       {
+         position: new google.maps.LatLng(24.200802, 120.656955),type: 'gas',address: '407台中市西屯區環中路一段2490號'
+       },//員村右上
+       {
+         position: new google.maps.LatLng(24.192699, 120.623173),type: 'gas',address: '407台中市西屯區福雅路300號'
+       },//福雅路上
+       {
+         position: new google.maps.LatLng(24.184478, 120.590691),type: 'gas',address: '407台中市西屯區台灣大道五段142號'
+       },//大肚山嘟嘟
+       {
+         position: new google.maps.LatLng(24.182951, 120.601033),type: 'gas',address: '407台中市西屯區台灣大道四段1832號'
+       },//加盟店
+       {
+         position: new google.maps.LatLng(24.183307, 120.614490),type: 'gas',address: '407台中市西屯區台灣大道四段1047號'
+       },//加盟右邊
+       {
+         position: new google.maps.LatLng(24.175196, 120.604285),type: 'gas',address: '407台中市西屯區工業區八路2號'
+       },//加盟下
+       {
+         position: new google.maps.LatLng(24.171506, 120.643884),type: 'gas',address: '407台中市西屯區青海路二段211號'
+       },//青海
+       {
+         position: new google.maps.LatLng(24.171739, 120.659858),type: 'gas',address: '407台中市西屯區文心路三段187號'
+       },//青海右
+       {
+         position: new google.maps.LatLng(24.166426, 120.618868),type: 'gas',address: '407台中市西屯區安和路51-8號'
+       },//安和
+       {
+         position: new google.maps.LatLng(24.162665, 120.628126),type: 'gas',address: '407台中市西屯區環中路三段800號'
+       },//安和右下
+       {
+         position: new google.maps.LatLng(24.163146, 120.650155),type: 'gas',address: '407台中市西屯區文心路三段2號'
+       },//青海右下
+       {
+         position: new google.maps.LatLng(24.154892, 120.612128),type: 'gas',address: '408台中市南屯區五權西路三段208號'
+       },//安和左下
+       {
+         position: new google.maps.LatLng(24.150515, 120.622591),type: 'gas',address: '408台中市南屯區五權西路二段1260號'
+       },//南屯交流道
+       {
+         position: new google.maps.LatLng(24.147088, 120.629921),type: 'gas',address: '408台中市南屯區五權西路二段1001號'
+       },//中村
+        
+      ];
+    features.forEach(function (features) {
+                    var marker = new google.maps.Marker({
+                        position: features.position,
+                        icon: icons[features.type].icon,
+                        map: map
+                    });
+                    var infowindow = new google.maps.InfoWindow({
+                        content: '<div>' + '<h2>'  + '</h2><p>地址:' + features.address + '</p></div>'
+                    });
+                    marker.addListener('mouseover', function (features) {
+                        infowindow.open(map, marker);
+                    });
+                    marker.addListener('mouseout', function (features) {
+                        infowindow.close();
+                    });
+                });  
+}
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDO3YR-IFvqhAH1yu6zex_3HDMYabmOows&callback=initMap">
+</script>
+</body>
+</html>
+
+
+    
+
